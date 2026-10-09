@@ -60,7 +60,7 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
   return (
     <div className="max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-8">
       {/* Header Profile Greeting */}
-      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="syntrix-card bg-white p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <img
             src={
@@ -68,12 +68,12 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
               'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
             }
             alt={currentUser?.name}
-            className="w-16 h-16 rounded-2xl object-cover border-2 border-teal-500 shadow-sm"
+            className="w-16 h-16 rounded-2xl object-cover border-2 border-indigo-600"
           />
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900">{currentUser?.name}</h1>
-              <span className="text-[10px] bg-teal-100 text-teal-800 font-bold uppercase tracking-wider px-2 py-0.5 rounded border border-teal-200">
+              <span className="text-[10px] bg-indigo-100 text-indigo-800 font-bold uppercase tracking-wider px-2 py-0.5 rounded border border-indigo-200">
                 Verified Citizen
               </span>
             </div>
@@ -83,7 +83,7 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
 
         <button
           onClick={onReportNavigate}
-          className="self-start md:self-auto flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-xs transition-colors shadow-sm"
+          className="self-start md:self-auto flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
         >
           <PlusCircle className="w-4 h-4 stroke-[2.5]" />
           <span>Report New Problem</span>
@@ -92,7 +92,7 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card bg-white p-5">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">Total Reports Filed</span>
             <FileText className="w-4 h-4 text-slate-500" />
@@ -101,7 +101,7 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
           <p className="text-[11px] text-slate-500 mt-1">Recorded in municipal database</p>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card bg-white p-5">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">Active In Queue</span>
             <Clock className="w-4 h-4 text-amber-500" />
@@ -110,7 +110,7 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
           <p className="text-[11px] text-slate-500 mt-1">Awaiting or undergoing field repairs</p>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card bg-white p-5">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-bold uppercase tracking-wider">Verified Resolved</span>
             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -134,13 +134,13 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
             <p className="text-xs text-slate-500">You haven't submitted any complaints under this account yet.</p>
             <button
               onClick={onReportNavigate}
-              className="px-4 py-2 bg-teal-500 text-slate-950 font-bold rounded-xl text-xs hover:bg-teal-400"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
             >
               Report Your First Civic Issue
             </button>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-2xs overflow-hidden divide-y divide-slate-100">
+          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden divide-y divide-slate-100">
             {myComplaints.map((c) => (
               <div
                 key={c.id}
@@ -197,7 +197,7 @@ export const CitizenDashboardPage: React.FC<Props> = ({ onTrackNavigate, onRepor
               <div
                 key={c.id}
                 onClick={() => onTrackNavigate(c.reference)}
-                className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs hover:border-teal-500 transition-all cursor-pointer flex flex-col justify-between"
+                className="bg-white p-4 rounded-2xl border border-slate-200 hover:border-indigo-500 transition-colors cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs mb-2">

@@ -68,7 +68,7 @@ export const TransparencyPage: React.FC = () => {
 
       {/* KPI Overview Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card p-5 bg-white">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-[11px] font-bold uppercase tracking-wider">Total Reports</span>
             <BarChart3 className="w-4 h-4 text-slate-500" />
@@ -79,7 +79,7 @@ export const TransparencyPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card p-5 bg-white">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-[11px] font-bold uppercase tracking-wider">Verified Resolved</span>
             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -90,7 +90,7 @@ export const TransparencyPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card p-5 bg-white">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-[11px] font-bold uppercase tracking-wider">In Active Repairs</span>
             <Clock className="w-4 h-4 text-amber-500" />
@@ -101,12 +101,12 @@ export const TransparencyPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-2xs">
+        <div className="syntrix-card p-5 bg-white">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-[11px] font-bold uppercase tracking-wider">Avg Turnaround</span>
-            <TrendingUp className="w-4 h-4 text-teal-500" />
+            <TrendingUp className="w-4 h-4 text-indigo-600" />
           </div>
-          <div className="text-3xl font-extrabold text-teal-600">{summary.avgResolutionHours}h</div>
+          <div className="text-3xl font-extrabold text-indigo-600">{summary.avgResolutionHours}h</div>
           <div className="text-[11px] text-slate-500 mt-1">
             Across verified closures
           </div>
@@ -116,7 +116,7 @@ export const TransparencyPage: React.FC = () => {
       {/* Category Breakdown & Locality Heatmaps */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Category Breakdown Bar Chart (7 cols) */}
-        <div className="lg:col-span-7 bg-white p-6 rounded-3xl border border-slate-200 shadow-xs space-y-5">
+        <div className="lg:col-span-7 syntrix-card p-6 bg-white space-y-5">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
               <h3 className="font-extrabold text-slate-900 text-base">Complaints by Civic Category</h3>
@@ -166,7 +166,7 @@ export const TransparencyPage: React.FC = () => {
         </div>
 
         {/* Highest Incident Localities (5 cols) */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+        <div className="lg:col-span-5 syntrix-card p-6 bg-white space-y-4">
           <div className="border-b border-slate-100 pb-3">
             <h3 className="font-extrabold text-slate-900 text-base">High-Volume Localities</h3>
             <p className="text-xs text-slate-500">Neighborhoods with highest report densities</p>
@@ -187,7 +187,7 @@ export const TransparencyPage: React.FC = () => {
                     <div className="text-[10px] text-slate-400">Metro Sub-District</div>
                   </div>
                 </div>
-                <span className="font-mono font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
+                <span className="font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
                   {area.count} Issues
                 </span>
               </div>
@@ -197,7 +197,7 @@ export const TransparencyPage: React.FC = () => {
       </div>
 
       {/* Department-Level Performance Table */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-xs overflow-hidden space-y-2 p-6">
+      <div className="syntrix-card p-6 bg-white overflow-hidden space-y-2">
         <div className="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h3 className="font-extrabold text-slate-900 text-base">Department Performance &amp; SLA Compliance</h3>

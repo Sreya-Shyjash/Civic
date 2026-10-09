@@ -35,7 +35,7 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white shadow-md">
+    <header className="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo */}
@@ -44,13 +44,13 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
               onClick={() => setCurrentTab('landing')}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
-              <div className="w-9 h-9 rounded-xl bg-teal-500 flex items-center justify-center text-slate-950 font-black shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
-                <Flame className="w-5 h-5 fill-slate-950 text-slate-950" />
+              <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black group-hover:bg-indigo-700 transition-colors">
+                <Flame className="w-5 h-5 fill-white text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className="font-extrabold text-lg tracking-tight text-white">CivicPulse</span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider bg-teal-950 text-teal-300 border border-teal-700/60 px-1.5 py-0.2 rounded">
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-indigo-950 text-indigo-300 border border-indigo-700/60 px-1.5 py-0.2 rounded">
                     GovTech
                   </span>
                 </div>
@@ -99,30 +99,20 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
 
           {/* Right Action Tools */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Pitch Deck Button */}
-            <button
-              onClick={onOpenPitch}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-medium text-slate-200 transition-colors shadow-2xs"
-              title="View Hackathon Pitch Deck & Judge Guide"
-            >
-              <Presentation className="w-3.5 h-3.5 text-amber-400" />
-              <span className="hidden md:inline">Pitch Deck</span>
-            </button>
-
             {/* Role Switcher Pill */}
             <div className="relative">
               <button
                 onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
-                className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+                className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-colors cursor-pointer ${
                   isOfficial
-                    ? 'bg-teal-950/80 border-teal-600/70 text-teal-200 hover:bg-teal-900/80'
-                    : 'bg-slate-800/90 border-slate-700 text-slate-200 hover:bg-slate-800'
+                    ? 'bg-indigo-950 border-indigo-700 text-indigo-200 hover:bg-indigo-900'
+                    : 'bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-750'
                 }`}
                 title="Switch Demo Role"
               >
                 <div
                   className={`w-2 h-2 rounded-full ${
-                    isOfficial ? 'bg-teal-400' : 'bg-blue-400'
+                    isOfficial ? 'bg-indigo-400' : 'bg-emerald-400'
                   }`}
                 />
                 <span className="max-w-[100px] sm:max-w-[130px] truncate">
@@ -131,7 +121,7 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
                 <span
                   className={`hidden sm:inline-block text-[9px] px-1 rounded uppercase font-bold tracking-wider ${
                     isOfficial
-                      ? 'bg-teal-800/70 text-teal-100'
+                      ? 'bg-indigo-800 text-indigo-100'
                       : 'bg-slate-700 text-slate-300'
                   }`}
                 >
@@ -141,7 +131,7 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
               </button>
 
               {roleDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-200 text-slate-900 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl border border-slate-300 text-slate-900 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-3 py-1.5 border-b border-slate-100">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                       Switch Demo Persona
@@ -160,9 +150,9 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
                             switchUser(u.id);
                             setRoleDropdownOpen(false);
                           }}
-                          className={`w-full text-left p-2 rounded-lg text-xs flex items-center justify-between transition-colors ${
+                          className={`w-full text-left p-2 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
                             isCurrent
-                              ? 'bg-teal-50 text-teal-900 font-semibold'
+                              ? 'bg-indigo-50 text-indigo-900 font-semibold'
                               : 'hover:bg-slate-50 text-slate-700'
                           }`}
                         >
@@ -183,13 +173,13 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
                             <span
                               className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase ${
                                 userIsOfficial
-                                  ? 'bg-teal-100 text-teal-800'
+                                  ? 'bg-indigo-100 text-indigo-800'
                                   : 'bg-slate-100 text-slate-600'
                               }`}
                             >
                               {userIsOfficial ? 'Gov' : 'Citizen'}
                             </span>
-                            {isCurrent && <Check className="w-3.5 h-3.5 text-teal-600 ml-1" />}
+                            {isCurrent && <Check className="w-3.5 h-3.5 text-indigo-600 ml-1" />}
                           </div>
                         </button>
                       );
@@ -206,7 +196,7 @@ export const Navbar: React.FC<Props> = ({ currentTab, setCurrentTab, onOpenPitch
             {/* Primary Action Button */}
             <button
               onClick={() => setCurrentTab('report')}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-lg text-xs transition-all shadow-sm hover:shadow-teal-500/20"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-xs transition-colors cursor-pointer"
             >
               <PlusCircle className="w-3.5 h-3.5 stroke-[2.5]" />
               <span className="hidden sm:inline">Report Issue</span>

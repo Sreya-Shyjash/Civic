@@ -115,14 +115,14 @@ export const ExploreIssuesPage: React.FC<Props> = ({ onSelectComplaint, onReport
 
         <button
           onClick={onReportNavigate}
-          className="self-start md:self-auto px-4 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-xs transition-colors shadow-sm"
+          className="self-start md:self-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
         >
           + Submit New Report
         </button>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+      <div className="syntrix-card p-5 bg-white space-y-3">
         <form onSubmit={handleSearchSubmit} className="flex gap-2">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
@@ -131,12 +131,12 @@ export const ExploreIssuesPage: React.FC<Props> = ({ onSelectComplaint, onReport
               placeholder="Search by keywords, ID (e.g. CP-2026-001), street, or locality..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-teal-500 focus:bg-white"
+              className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-indigo-600 focus:bg-white"
             />
           </div>
           <button
             type="submit"
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-semibold shrink-0"
+            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shrink-0 transition-colors cursor-pointer"
           >
             Search
           </button>
@@ -240,7 +240,7 @@ export const ExploreIssuesPage: React.FC<Props> = ({ onSelectComplaint, onReport
             <div
               key={c.id}
               onClick={() => onSelectComplaint(c.reference)}
-              className="bg-white rounded-2xl border border-slate-200 shadow-2xs hover:shadow-md hover:border-teal-500/80 transition-all cursor-pointer flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-2xl border border-slate-200 hover:border-indigo-500 transition-colors cursor-pointer flex flex-col justify-between overflow-hidden group"
             >
               {/* Optional Thumbnail Banner */}
               {c.imageUrl && (
@@ -251,12 +251,12 @@ export const ExploreIssuesPage: React.FC<Props> = ({ onSelectComplaint, onReport
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-2.5 left-2.5">
-                    <span className="font-mono text-[10px] font-black text-slate-900 bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded shadow-xs">
+                    <span className="font-mono text-[10px] font-black text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200">
                       {c.reference}
                     </span>
                   </div>
                   {c.afterImageUrl && (
-                    <div className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-xs flex items-center gap-1">
+                    <div className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" />
                       <span>Proof Attached</span>
                     </div>

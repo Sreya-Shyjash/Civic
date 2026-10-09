@@ -12,6 +12,11 @@ import {
   ArrowRight,
   ShieldAlert,
   Info,
+  Construction,
+  Trash2,
+  Waves,
+  Lightbulb,
+  Droplets,
 } from 'lucide-react';
 import { api } from '../lib/api';
 import { ComplaintCategory, PriorityLevel } from '../types';
@@ -47,37 +52,37 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
       id: 'road_damage' as ComplaintCategory,
       title: 'Road & Pavement',
       desc: 'Potholes, cracks, damaged asphalt, faded crosswalks',
-      icon: '🚧',
+      Icon: Construction,
     },
     {
       id: 'waste_management' as ComplaintCategory,
       title: 'Waste & Sanitation',
       desc: 'Overflowing dumpsters, illegal trash dumping, litter',
-      icon: '🗑️',
+      Icon: Trash2,
     },
     {
       id: 'drainage' as ComplaintCategory,
       title: 'Drainage & Stormwater',
       desc: 'Clogged grates, flooding, standing sewer overflow',
-      icon: '🌊',
+      Icon: Waves,
     },
     {
       id: 'streetlights' as ComplaintCategory,
       title: 'Lighting & Signals',
       desc: 'Dark streetlights, malfunctioning traffic signals',
-      icon: '💡',
+      Icon: Lightbulb,
     },
     {
       id: 'water_supply' as ComplaintCategory,
       title: 'Water Supply',
       desc: 'Burst mains, dirty tap water, leaking hydrants',
-      icon: '🚰',
+      Icon: Droplets,
     },
     {
       id: 'public_safety' as ComplaintCategory,
       title: 'Safety Infrastructure',
       desc: 'Broken guardrails, exposed wiring, open manholes',
-      icon: '⚠️',
+      Icon: AlertTriangle,
     },
   ];
 
@@ -235,7 +240,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
   if (createdRef) {
     return (
       <div className="max-w-xl mx-auto py-10 px-4">
-        <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl text-center space-y-6">
+        <div className="bg-white p-8 rounded-3xl border border-slate-200 text-center space-y-6">
           <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto ring-8 ring-emerald-50">
             <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
           </div>
@@ -260,7 +265,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
             </div>
             <button
               onClick={handleCopyRef}
-              className="px-3 py-1.5 bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-2xs"
+              className="px-3 py-1.5 bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
             >
               <Copy className="w-3.5 h-3.5" />
               <span>{copied ? 'Copied!' : 'Copy Code'}</span>
@@ -271,7 +276,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
           <div className="space-y-3 pt-2">
             <button
               onClick={() => onSuccessNavigate(createdRef)}
-              className="w-full py-3 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Track Resolution Progress Now</span>
               <ArrowRight className="w-4 h-4" />
@@ -286,7 +291,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
                 setImageUrl('');
                 setSafetyRisk(false);
               }}
-              className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition-colors"
+              className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs transition-colors cursor-pointer"
             >
               Submit Another Civic Report
             </button>
@@ -320,7 +325,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
       )}
 
       {/* Main Submission Form */}
-      <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+      <form onSubmit={handleSubmit} className="syntrix-card p-6 sm:p-8 bg-white space-y-6">
         {/* Category Picker */}
         <div>
           <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
@@ -329,18 +334,19 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {categories.map((cat) => {
               const isSelected = category === cat.id;
+              const Icon = cat.Icon;
               return (
                 <button
                   type="button"
                   key={cat.id}
                   onClick={() => setCategory(cat.id)}
-                  className={`p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
+                  className={`p-3 rounded-xl border text-left transition-colors flex flex-col justify-between cursor-pointer ${
                     isSelected
-                      ? 'border-teal-500 bg-teal-50/50 ring-2 ring-teal-500/20'
+                      ? 'border-indigo-600 bg-indigo-50/70 ring-1 ring-indigo-500'
                       : 'border-slate-200 hover:border-slate-300 bg-white'
                   }`}
                 >
-                  <span className="text-2xl mb-1">{cat.icon}</span>
+                  <Icon className={`w-5 h-5 mb-2 ${isSelected ? 'text-indigo-600' : 'text-slate-600'}`} />
                   <div>
                     <div className="text-xs font-bold text-slate-900">{cat.title}</div>
                     <div className="text-[10px] text-slate-500 line-clamp-1">{cat.desc}</div>
@@ -524,7 +530,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
               <button
                 type="button"
                 onClick={() => setImageUrl('')}
-                className="absolute top-2 right-2 bg-slate-900/80 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-lg backdrop-blur-xs"
+                className="absolute top-2 right-2 bg-slate-900/90 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-lg cursor-pointer"
               >
                 Remove
               </button>
@@ -547,7 +553,7 @@ export const ReportIssuePage: React.FC<Props> = ({ onSuccessNavigate, onExploreN
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-60"
+            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
           >
             {submitting ? (
               <span>Saving Complaint to City Database...</span>

@@ -57,19 +57,19 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
   return (
     <div className="space-y-16 pb-12">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-xl">
+      <section className="relative overflow-hidden bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-800">
         {/* Subtle grid pattern background */}
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:24px_24px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-950/80 border border-teal-500/40 text-teal-300 text-xs font-semibold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-950 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
+            <span className="w-2 h-2 rounded-full bg-indigo-400" />
             <span>Civic Tech &amp; Governance Platform • 2026 Hackathon Edition</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Bridging Citizens &amp; City Hall With{' '}
-            <span className="text-teal-400">Radical Transparency</span>
+            <span className="text-indigo-400">Radical Transparency</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -79,7 +79,7 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
           {/* Quick Tracking Search Bar */}
           <form
             onSubmit={handleTrackSubmit}
-            className="max-w-md mx-auto flex items-center bg-slate-800/90 border border-slate-700 rounded-xl p-1.5 shadow-lg focus-within:border-teal-400 transition-colors"
+            className="max-w-md mx-auto flex items-center bg-slate-800 border border-slate-700 rounded-xl p-1.5 focus-within:border-indigo-400 transition-colors"
           >
             <div className="pl-3 text-slate-400">
               <Search className="w-4 h-4" />
@@ -93,7 +93,7 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-lg text-xs transition-colors shrink-0"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-xs transition-colors shrink-0 cursor-pointer"
             >
               Track
             </button>
@@ -103,7 +103,7 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={() => onNavigate('report')}
-              className="flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold rounded-xl text-sm transition-all shadow-md hover:shadow-teal-500/25"
+              className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors cursor-pointer"
             >
               <span>Report an Issue</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />
@@ -111,18 +111,10 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
 
             <button
               onClick={() => onNavigate('explore')}
-              className="flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm border border-slate-700 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm border border-slate-700 transition-colors cursor-pointer"
             >
-              <Eye className="w-4 h-4 text-teal-400" />
+              <Eye className="w-4 h-4 text-indigo-400" />
               <span>Explore Public Reports</span>
-            </button>
-
-            <button
-              onClick={onOpenPitch}
-              className="flex items-center gap-2 px-5 py-3 bg-slate-800/80 hover:bg-slate-700/80 text-amber-300 font-semibold rounded-xl text-sm border border-amber-500/30 transition-colors"
-            >
-              <Award className="w-4 h-4 text-amber-400" />
-              <span>Pitch Deck &amp; Judge FAQ</span>
             </button>
           </div>
         </div>
@@ -267,9 +259,9 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
       </section>
 
       {/* Municipal Accountability & Transparency Spotlight */}
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 sm:p-10 border border-slate-700/60 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+      <section className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="space-y-4 max-w-xl">
-          <div className="inline-flex items-center gap-1.5 text-teal-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 text-indigo-400 text-xs font-bold uppercase tracking-wider">
             <Shield className="w-4 h-4" />
             Public Oversight
           </div>
@@ -282,13 +274,13 @@ export const LandingPage: React.FC<Props> = ({ onNavigate, onOpenPitch }) => {
           <div className="flex flex-wrap gap-3 pt-2">
             <button
               onClick={() => onNavigate('transparency')}
-              className="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-xs transition-colors"
+              className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
             >
               View Transparency Metrics
             </button>
             <button
               onClick={() => onNavigate('map')}
-              className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs border border-slate-700 transition-colors"
+              className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs border border-slate-700 transition-colors cursor-pointer"
             >
               Open Civic Map
             </button>

@@ -106,7 +106,6 @@ export const LeafletMap: React.FC<Props> = ({
             height: ${isSelected ? '32px' : '26px'};
             background-color: ${pinColor};
             border: 3px solid ${isSelected ? '#ffffff' : pinBorder};
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             border-radius: 50% 50% 50% 0;
             transform: rotate(-45deg);
             display: flex;
@@ -209,11 +208,11 @@ export const LeafletMap: React.FC<Props> = ({
   }
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm" style={{ height }}>
+    <div className="relative w-full rounded-2xl overflow-hidden border border-slate-200" style={{ height }}>
       <div ref={mapContainerRef} className="w-full h-full z-10" />
 
       {/* Map Legend Overlay */}
-      <div className="absolute bottom-4 left-4 z-20 bg-white/95 backdrop-blur-xs p-3 rounded-xl border border-slate-200/90 shadow-md text-xs space-y-1.5 max-w-[200px]">
+      <div className="absolute bottom-4 left-4 z-20 bg-white p-3 rounded-xl border border-slate-200 text-xs space-y-1.5 max-w-[200px]">
         <div className="font-semibold text-slate-800 text-[11px] uppercase tracking-wider mb-1">Status Legend</div>
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />

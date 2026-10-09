@@ -140,7 +140,7 @@ export const TrackIssuePage: React.FC<Props> = ({ initialReference = '', onExplo
       </div>
 
       {/* Search Input Box */}
-      <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+      <div className="syntrix-card p-5 bg-white space-y-4">
         <form onSubmit={handleSearchSubmit} className="flex gap-2">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
@@ -149,13 +149,13 @@ export const TrackIssuePage: React.FC<Props> = ({ initialReference = '', onExplo
               placeholder="Enter reference ID (e.g. CP-2026-001)"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-mono uppercase focus:outline-none focus:border-teal-500 focus:bg-white"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-mono uppercase focus:outline-none focus:border-indigo-500 focus:bg-white"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-sm transition-colors shrink-0 disabled:opacity-60"
+            className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shrink-0 disabled:opacity-60 cursor-pointer"
           >
             {loading ? 'Searching...' : 'Track'}
           </button>
@@ -172,7 +172,7 @@ export const TrackIssuePage: React.FC<Props> = ({ initialReference = '', onExplo
                 setQuery(sample.ref);
                 searchComplaint(sample.ref);
               }}
-              className="px-2.5 py-1 bg-slate-100 hover:bg-teal-50 hover:text-teal-800 text-slate-700 rounded-lg text-xs font-mono font-medium border border-slate-200 transition-colors"
+              className="px-3 py-1 bg-slate-50 hover:bg-indigo-50 hover:text-indigo-800 text-slate-700 rounded-xl text-xs font-mono font-medium border border-slate-200 transition-colors cursor-pointer"
             >
               {sample.ref}
             </button>
@@ -191,7 +191,7 @@ export const TrackIssuePage: React.FC<Props> = ({ initialReference = '', onExplo
       {complaint && (
         <div className="space-y-6">
           {/* Header Card */}
-          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <div className="syntrix-card p-6 sm:p-8 bg-white space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -330,7 +330,7 @@ export const TrackIssuePage: React.FC<Props> = ({ initialReference = '', onExplo
           </div>
 
           {/* Audit Trail Timeline */}
-          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <div className="syntrix-card bg-white p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-lg font-bold text-slate-900">Official Lifecycle &amp; Audit Trail</h3>
@@ -348,7 +348,7 @@ export const TrackIssuePage: React.FC<Props> = ({ initialReference = '', onExplo
 
           {/* Public Official Updates */}
           {notes.length > 0 && (
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+            <div className="syntrix-card bg-white p-6 sm:p-8 space-y-4">
               <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
                 <FileText className="w-4 h-4 text-teal-600" />
                 <h3>Official Communications</h3>

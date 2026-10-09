@@ -19,7 +19,7 @@ export const PriorityBadge: React.FC<Props> = ({ priority, size = 'md', showIcon
     case 'Critical':
       return (
         <span
-          className={`inline-flex items-center rounded-md bg-rose-600 text-white shadow-xs ${sizeClasses[size]}`}
+          className={`inline-flex items-center rounded-md bg-rose-600 text-white ${sizeClasses[size]}`}
           title="Critical Priority - Immediate Intervention Required (24h SLA)"
         >
           {showIcon && <AlertOctagon className="w-3.5 h-3.5 text-rose-100" />}

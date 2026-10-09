@@ -59,7 +59,7 @@ export const Timeline: React.FC<Props> = ({ history }) => {
             </div>
 
             {/* Event Card */}
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs transition-all hover:border-slate-300">
+            <div className="bg-white p-4 rounded-xl border border-slate-200 transition-colors hover:border-slate-300">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">

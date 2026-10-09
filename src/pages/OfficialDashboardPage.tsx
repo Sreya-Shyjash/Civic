@@ -244,13 +244,13 @@ export const OfficialDashboardPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-2 justify-center pt-1">
             <button
               onClick={() => switchUser('user-official-1')}
-              className="px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
             >
               Director Marcus Vance (Public Works)
             </button>
             <button
               onClick={() => switchUser('user-official-2')}
-              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs transition-colors shadow-2xs"
+              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
             >
               Inspector Sarah Jenkins (Sanitation)
             </button>
@@ -270,28 +270,28 @@ export const OfficialDashboardPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-6">
       {/* Officer Header */}
-      <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="syntrix-card p-6 sm:p-8 bg-white flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-1">
             <Shield className="w-4 h-4" />
             <span>Authorized Municipal Workstation</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Complaint Dispatch &amp; Triage Engine
           </h1>
-          <p className="text-xs text-slate-300 mt-1">
-            Logged in as: <strong className="text-teal-300">{currentUser?.name}</strong> • {currentUser?.department || 'City Administration'}
+          <p className="text-xs text-slate-500 mt-1">
+            Logged in as: <strong className="text-indigo-600">{currentUser?.name}</strong> • {currentUser?.department || 'City Administration'}
           </p>
         </div>
 
         {/* Quick SLA Counter Badge */}
-        <div className="flex items-center gap-3 bg-slate-800/80 p-3 rounded-2xl border border-slate-700">
-          <div className="text-center px-3 border-r border-slate-700">
-            <div className="text-xl font-bold text-white">{complaints.length}</div>
+        <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+          <div className="text-center px-3 border-r border-slate-200">
+            <div className="text-xl font-bold text-slate-900">{complaints.length}</div>
             <div className="text-[10px] text-slate-400 uppercase tracking-wider">Queue Total</div>
           </div>
           <div className="text-center px-3">
-            <div className={`text-xl font-bold ${overdueCount > 0 ? 'text-rose-400' : 'text-emerald-400'}`}>
+            <div className={`text-xl font-bold ${overdueCount > 0 ? 'text-rose-500' : 'text-emerald-600'}`}>
               {overdueCount}
             </div>
             <div className="text-[10px] text-slate-400 uppercase tracking-wider">SLA Overdue</div>
@@ -300,7 +300,7 @@ export const OfficialDashboardPage: React.FC = () => {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+      <div className="syntrix-card p-4 bg-white space-y-3">
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
@@ -357,9 +357,9 @@ export const OfficialDashboardPage: React.FC = () => {
             <button
               type="button"
               onClick={() => setShowOverdueOnly(!showOverdueOnly)}
-              className={`px-3 py-2 rounded-lg font-semibold flex items-center gap-1.5 transition-colors ${
+              className={`px-3 py-2 rounded-lg font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
                 showOverdueOnly
-                  ? 'bg-rose-600 text-white shadow-xs'
+                  ? 'bg-rose-600 text-white'
                   : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
               }`}
             >
@@ -373,7 +373,7 @@ export const OfficialDashboardPage: React.FC = () => {
       {/* Main Split Interface: Queue Table & Action Drawer */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Side: Complaints Queue Table (7 cols) */}
-        <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 shadow-xs overflow-hidden">
+        <div className="lg:col-span-7 syntrix-card bg-white overflow-hidden">
           <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs text-slate-600">
             <span className="font-bold text-slate-800 uppercase tracking-wider">
               Assigned Incident Queue ({complaints.length})
@@ -441,7 +441,7 @@ export const OfficialDashboardPage: React.FC = () => {
         </div>
 
         {/* Right Side: Triage Workstation & Audit Controller (5 cols) */}
-        <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-6 sticky top-20">
+        <div className="lg:col-span-5 syntrix-card bg-white p-6 space-y-6 sticky top-20">
           {!selectedComplaint ? (
             <div className="p-12 text-center text-slate-400 space-y-2">
               <Eye className="w-10 h-10 text-slate-300 mx-auto" />
@@ -620,7 +620,7 @@ export const OfficialDashboardPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={actionSubmitting}
-                    className="w-full py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl text-xs transition-colors shadow-xs"
+                    className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
                   >
                     {actionSubmitting ? 'Saving Status Update...' : 'Commit Status Update'}
                   </button>
@@ -637,7 +637,7 @@ export const OfficialDashboardPage: React.FC = () => {
                     <select
                       value={newPriority}
                       onChange={(e) => setNewPriority(e.target.value as PriorityLevel)}
-                      className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-500"
+                      className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-indigo-600"
                     >
                       <option value="Critical">Critical (24h SLA • Immediate Danger)</option>
                       <option value="High">High (48h SLA • Major Transit Disruption)</option>
@@ -656,14 +656,14 @@ export const OfficialDashboardPage: React.FC = () => {
                       placeholder="Explain why municipal assessment diverged from the automated rule recommendation..."
                       value={overrideReason}
                       onChange={(e) => setOverrideReason(e.target.value)}
-                      className="w-full p-2.5 border border-slate-300 rounded-xl text-xs focus:outline-none focus:border-teal-500"
+                      className="w-full p-2.5 border border-slate-300 rounded-xl text-xs focus:outline-none focus:border-indigo-600"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={actionSubmitting}
-                    className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition-colors shadow-xs"
+                    className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
                   >
                     {actionSubmitting ? 'Saving Override...' : 'Confirm Priority Override'}
                   </button>
@@ -680,7 +680,7 @@ export const OfficialDashboardPage: React.FC = () => {
                     <select
                       value={newDept}
                       onChange={(e) => setNewDept(e.target.value)}
-                      className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-500"
+                      className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:outline-none focus:border-indigo-600"
                     >
                       {departmentsList.map((d) => (
                         <option key={d} value={d}>{d}</option>
@@ -691,7 +691,7 @@ export const OfficialDashboardPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={actionSubmitting}
-                    className="w-full py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl text-xs transition-colors shadow-xs"
+                    className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
                   >
                     {actionSubmitting ? 'Routing...' : 'Re-Assign Department'}
                   </button>
@@ -741,14 +741,14 @@ export const OfficialDashboardPage: React.FC = () => {
                       }
                       value={noteText}
                       onChange={(e) => setNoteText(e.target.value)}
-                      className="w-full p-2.5 border border-slate-300 rounded-xl text-xs focus:outline-none focus:border-teal-500"
+                      className="w-full p-2.5 border border-slate-300 rounded-xl text-xs focus:outline-none focus:border-indigo-600"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={actionSubmitting}
-                    className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition-colors shadow-xs"
+                    className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
                   >
                     {actionSubmitting ? 'Posting...' : 'Save Administrative Note'}
                   </button>

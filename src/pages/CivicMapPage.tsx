@@ -75,7 +75,7 @@ export const CivicMapPage: React.FC<Props> = ({ onSelectComplaint, onReportNavig
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 shadow-2xs focus:outline-none focus:border-teal-500"
+            className="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 focus:outline-none focus:border-indigo-600"
           >
             <option value="all">All Categories</option>
             <option value="road_damage">Road &amp; Pavement</option>
@@ -89,7 +89,7 @@ export const CivicMapPage: React.FC<Props> = ({ onSelectComplaint, onReportNavig
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 shadow-2xs focus:outline-none focus:border-teal-500"
+            className="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 focus:outline-none focus:border-indigo-600"
           >
             <option value="all">All Statuses</option>
             <option value="Submitted">Submitted</option>
@@ -101,7 +101,7 @@ export const CivicMapPage: React.FC<Props> = ({ onSelectComplaint, onReportNavig
 
           <button
             onClick={onReportNavigate}
-            className="px-4 py-2 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-xs transition-colors shadow-2xs"
+            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
           >
             + Report at Location
           </button>
@@ -111,7 +111,7 @@ export const CivicMapPage: React.FC<Props> = ({ onSelectComplaint, onReportNavig
       {/* Main Interactive Map & Inspector Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Map Container (8 cols) */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-8 syntrix-card overflow-hidden bg-white p-2">
           <LeafletMap
             complaints={complaints}
             selectedComplaintId={selectedComplaint?.id}
@@ -121,7 +121,7 @@ export const CivicMapPage: React.FC<Props> = ({ onSelectComplaint, onReportNavig
         </div>
 
         {/* Selected Complaint Card (4 cols) */}
-        <div className="lg:col-span-4 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-5">
+        <div className="lg:col-span-4 syntrix-card bg-white p-6 space-y-5">
           {!selectedComplaint ? (
             <div className="p-8 text-center text-slate-400 space-y-2">
               <MapPin className="w-8 h-8 text-slate-300 mx-auto" />
@@ -184,7 +184,7 @@ export const CivicMapPage: React.FC<Props> = ({ onSelectComplaint, onReportNavig
                 <button
                   type="button"
                   onClick={() => onSelectComplaint(selectedComplaint.reference)}
-                  className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors shadow-2xs"
+                  className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
                   <span>Inspect Full Audit Timeline</span>
                   <ArrowRight className="w-3.5 h-3.5" />

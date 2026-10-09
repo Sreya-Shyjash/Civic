@@ -49,7 +49,7 @@ export const ProfilePage: React.FC = () => {
       </div>
 
       {/* Active User Card */}
-      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div className="syntrix-card p-6 sm:p-8 bg-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <img
             src={
@@ -57,15 +57,15 @@ export const ProfilePage: React.FC = () => {
               'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
             }
             alt={currentUser?.name}
-            className="w-16 h-16 rounded-2xl object-cover border-2 border-teal-500 shadow-sm"
+            className="w-16 h-16 rounded-2xl object-cover border-2 border-indigo-600"
           />
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold text-slate-900">{currentUser?.name}</h2>
               <span
-                className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border ${
+                className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${
                   isOfficial
-                    ? 'bg-teal-50 text-teal-800 border-teal-200'
+                    ? 'bg-indigo-50 text-indigo-800 border-indigo-200'
                     : 'bg-slate-100 text-slate-700 border-slate-200'
                 }`}
               >
@@ -80,7 +80,7 @@ export const ProfilePage: React.FC = () => {
               {currentUser?.department && (
                 <>
                   <span>•</span>
-                  <span className="flex items-center gap-1 text-teal-700 font-semibold">
+                  <span className="flex items-center gap-1 text-indigo-700 font-semibold">
                     <Building className="w-3.5 h-3.5" />
                     {currentUser.department}
                   </span>
@@ -108,9 +108,9 @@ export const ProfilePage: React.FC = () => {
               <div
                 key={u.id}
                 onClick={() => switchUser(u.id)}
-                className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${
+                className={`p-4 rounded-2xl border cursor-pointer transition-colors flex items-center justify-between ${
                   isCurrent
-                    ? 'border-teal-500 bg-teal-50/60 ring-2 ring-teal-500/20 shadow-xs'
+                    ? 'border-indigo-600 bg-indigo-50/70'
                     : 'border-slate-200 hover:border-slate-300 bg-white'
                 }`}
               >
@@ -135,13 +135,13 @@ export const ProfilePage: React.FC = () => {
                   <span
                     className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded ${
                       userIsOfficial
-                        ? 'bg-teal-100 text-teal-800'
+                        ? 'bg-indigo-100 text-indigo-800'
                         : 'bg-slate-100 text-slate-600'
                     }`}
                   >
                     {userIsOfficial ? 'Gov' : 'Resident'}
                   </span>
-                  {isCurrent && <Check className="w-4 h-4 text-teal-600" />}
+                  {isCurrent && <Check className="w-4 h-4 text-indigo-600" />}
                 </div>
               </div>
             );
@@ -152,7 +152,7 @@ export const ProfilePage: React.FC = () => {
       {/* Reset Demo Data Card */}
       <div className="p-6 bg-slate-900 text-white rounded-3xl border border-slate-800 space-y-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-teal-400 text-xs font-bold uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
             <RotateCcw className="w-4 h-4" />
             <span>Hackathon Presentation Utility</span>
           </div>
@@ -175,7 +175,7 @@ export const ProfilePage: React.FC = () => {
         <button
           onClick={handleResetData}
           disabled={resetting}
-          className="px-4 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl text-xs transition-colors shadow-xs"
+          className="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-xl text-xs transition-colors cursor-pointer"
         >
           {resetting ? 'Resetting Database...' : 'Reset Demo Records'}
         </button>
